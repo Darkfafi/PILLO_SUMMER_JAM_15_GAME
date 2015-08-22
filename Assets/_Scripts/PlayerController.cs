@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
 		RELEASED,
 		PRESSED
 	}
+	private GameObject PlayerBody;
+	private GameObject PlayerFace;
+
 	#endregion
 
 	// Use this for initialization
@@ -110,10 +113,10 @@ public class PlayerController : MonoBehaviour {
 		    _currentSize.y > 0.8f * scaleY && 
 		    _currentSize.y < 1.2f * scaleY) {
 			Destroy(shape);
-			UpdateTexture("blij1");
+			UpdateFaceTexture("blij1");
 			// scorepoint()
 		} else {
-			UpdateTexture("sad1");
+			UpdateFaceTexture("sad1");
 		//badstuff
 		}
 		Destroy(shape);
@@ -123,6 +126,12 @@ public class PlayerController : MonoBehaviour {
 	{
 		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
 		this.GetComponent<SpriteRenderer> ().sprite = sprite;
+	}
+
+	private void UpdateFaceTexture(string textureName)
+	{
+		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
+		this.GetComponentInChildren<SpriteRenderer> ().sprite = sprite;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

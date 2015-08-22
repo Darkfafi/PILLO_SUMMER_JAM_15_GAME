@@ -21,10 +21,10 @@ public class TargetForm : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.GetComponent<PlayerControll> () != null) {
+		if (other.gameObject.GetComponent<PlayerController> () != null) {
 			//TODO verander zodat het script van Patrick wordt aangeroepen.
-			PlayerControll plrCtr = other.gameObject.GetComponent<PlayerControll> ();
-			//plrCtr.CheckFormCorrect(this.transform);
+			PlayerController plrCtr = other.gameObject.GetComponent<PlayerController> ();
+			plrCtr.CheckShape(transform.localScale.x,transform.localScale.y,this.gameObject);
 		}
 	}
 }
