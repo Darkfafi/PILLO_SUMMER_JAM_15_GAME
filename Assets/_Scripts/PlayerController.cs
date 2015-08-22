@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void UpdateFaceTexture(string textureName)
 	{
-		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
+		Sprite sprite = Resources.Load ("Art/"+textureName, typeof(Sprite)) as Sprite;
 		SpriteRenderer renderer = GameObject.FindGameObjectWithTag ("FaceObject").GetComponent<SpriteRenderer> ();
 		renderer.sprite = sprite;
 	}
