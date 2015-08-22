@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour {
 	{
 		_sensitivityPilloOne = PilloController.GetSensor (PilloID.Pillo1);
 		_sensitivityPilloTwo = PilloController.GetSensor (PilloID.Pillo2);
+
+		//Debug.Log (PilloController.GetAccelero(PilloID.Pillo1).magnitude); // Boven 1100 en onder 900 == shake.
+
 		if(_sensitivityPilloOne >= 0.1f)
 		{
 			_pillowOneState = PillowState.PRESSED;
@@ -142,10 +145,5 @@ public class PlayerController : MonoBehaviour {
 		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
 		SpriteRenderer renderer = GameObject.FindGameObjectWithTag ("FaceObject").GetComponent<SpriteRenderer> ();
 		renderer.sprite = sprite;
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		
 	}
 }
