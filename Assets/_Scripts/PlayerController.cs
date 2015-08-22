@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour {
 
 	#region variable/properties
 
-	private float _sensitivityPilloOne;
-	private float _sensitivityPilloTwo;
+	private float _sensitivityPilloOne = 0;
+	private float _sensitivityPilloTwo = 0;
 	public Vector3 _currentSize;
 	public Vector3 _minSize;
 	public Vector3 _maxSize;
@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour {
 	private PillowState _pillowOneState;
 	private PillowState _pillowTwoState;
 	private float range;
-	public enum PillowState
+
+    public enum PillowState
 	{
 		RELEASED,
 		PRESSED
 	}
-	private GameObject PlayerBody;
-	private GameObject PlayerFace;
+	
+	public GameObject PlayerBody;
+	public GameObject PlayerFace;
 	#endregion
 
 	// Use this for initialization
@@ -44,9 +46,11 @@ public class PlayerController : MonoBehaviour {
 
 	private void UpdatePillowState()
 	{
-		_sensitivityPilloOne = PilloController.GetSensor (PilloID.Pillo1);
-		_sensitivityPilloTwo = PilloController.GetSensor (PilloID.Pillo2);
-		if(_sensitivityPilloOne >= 0.1f)
+		//if controller is enabled do stuff
+		_sensitivityPilloOne = Mathf.Min(1f, PilloController.GetSensor(PilloID.Pillo1) + (Input.GetAxis("Horizontal1") + 1f) / 2f);
+		_sensitivityPilloTwo = Mathf.Min(1f, PilloController.GetSensor(PilloID.Pillo2) + (-Input.GetAxis("Horizontal2") + 1f) / 2f);
+
+        if(_sensitivityPilloOne >= 0.1f)
 		{
 			_pillowOneState = PillowState.PRESSED;
 		}
@@ -66,7 +70,8 @@ public class PlayerController : MonoBehaviour {
 
 	private void UpdateCurrentSize()
 	{
-		if (_currentSize.x > _maxSize.x)
+
+        if (_currentSize.x > _maxSize.x)
 		{
 			_currentSize.x = _maxSize.x;
 		}
@@ -92,8 +97,8 @@ public class PlayerController : MonoBehaviour {
 		if (_pillowTwoState == PillowState.PRESSED)
 		{
 			timerY = 0;
-			_currentSize.y += 2.8f * Time.deltaTime * _sensitivityPilloTwo;
-			_currentSize.x -= 0.2f * Time.deltaTime;
+            _currentSize.y += 2.8f * Time.deltaTime * _sensitivityPilloTwo;
+            _currentSize.x -= 0.2f * Time.deltaTime;
 		}
 		else if (_pillowTwoState == PillowState.RELEASED)
 		{
@@ -104,32 +109,20 @@ public class PlayerController : MonoBehaviour {
 				_currentSize.y = Mathf.Lerp(_currentSize.y, 1, 0.02f);
 			}
 		}
-		transform.localScale = _currentSize;
-	}
-
-	private bool InScaleRange(GameObject shape)
-	{
-		Vector3 minScaleRange = new Vector3 (shape.transform.localScale.x - range, shape.transform.localScale.y - range, 0);
-		Vector3 maxScaleRange = new Vector3 (shape.transform.localScale.x + range, shape.transform.localScale.y + range, 0);
-		print (minScaleRange + "space " + maxScaleRange + "this scale " + this.transform.localScale);
-		if (this.transform.localScale.x > minScaleRange.x && this.transform.localScale.x < maxScaleRange.x &&
-			this.transform.localScale.y > minScaleRange.y && this.transform.localScale.y < maxScaleRange.y) {
-			return true;
+		
+		PlayerBody.transform.localScale = _currentSize;
+		if (_currentSize.x < _currentSize.y)
+		{
+			PlayerFace.transform.localScale = new Vector3(_currentSize.x, _currentSize.x, 1f);
 		}
-		return false;
-	}
-
-	public void CheckShape (GameObject shape)
-	{
-		if (InScaleRange(shape)) {
-			UpdateFaceTexture("blij1");
-			// scorepoint()
-		} else {
-			UpdateFaceTexture("sad1");
-		//badstuff
+		else
+		{
+			PlayerFace.transform.localScale = new Vector3(_currentSize.y, _currentSize.y, 1f);
 		}
-		Destroy(shape);
-	}
+        
+    }
+
+	
 
 	private void UpdateTexture(string textureName)
 	{
@@ -137,7 +130,7 @@ public class PlayerController : MonoBehaviour {
 		this.GetComponent<SpriteRenderer> ().sprite = sprite;
 	}
 
-	private void UpdateFaceTexture(string textureName)
+	public void UpdateFaceTexture(string textureName)
 	{
 		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
 		SpriteRenderer renderer = GameObject.FindGameObjectWithTag ("FaceObject").GetComponent<SpriteRenderer> ();
