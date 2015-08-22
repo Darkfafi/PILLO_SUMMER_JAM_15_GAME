@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 		
-		PlayerBody.transform.localScale = _currentSize;
+		PlayerBody.transform.localScale = new Vector3(_currentSize.x * 10, _currentSize.y * 10,1f);
 		if (_currentSize.x < _currentSize.y)
 		{
 			PlayerFace.transform.localScale = new Vector3(_currentSize.x, _currentSize.x, 1f);

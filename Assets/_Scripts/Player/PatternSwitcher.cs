@@ -10,7 +10,7 @@ public class PatternSwitcher : MonoBehaviour {
 	void Start () {
 		//_patternBody = GameObject.Find ("PatternPlayer");
 		//(int)(transform.localScale.x / GetComponent<SpriteRenderer>().bounds.size.x),(int)(transform.localScale.y / GetComponent<SpriteRenderer>().bounds.size.y)
-		SwitchPattern("pat");
+		SwitchPattern("pattern2");
 
 	}
 	
