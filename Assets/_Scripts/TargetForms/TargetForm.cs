@@ -79,11 +79,13 @@ public class TargetForm : MonoBehaviour {
 			if(InScaleRange())
 			{
                 print("win");
+				(GameObject.FindGameObjectWithTag ("HighScoreController").GetComponent ("HighScoreController") as HighScoreController).IncreaseAmountOfMatches();
             }
 			else
 			{
                 print("loss");
             }
+
 			Destroy(this.gameObject);
         }
 		if (InScaleRange()) {

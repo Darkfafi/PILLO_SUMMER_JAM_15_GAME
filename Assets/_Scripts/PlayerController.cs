@@ -115,14 +115,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			PlayerFace.transform.localScale = new Vector3(_currentSize.x, _currentSize.x, 1f);
 		}
-		else
-		{
-			PlayerFace.transform.localScale = new Vector3(_currentSize.y, _currentSize.y, 1f);
-		}
-        
-    }
-
-	
+	}
 
 	private void UpdateTexture(string textureName)
 	{
