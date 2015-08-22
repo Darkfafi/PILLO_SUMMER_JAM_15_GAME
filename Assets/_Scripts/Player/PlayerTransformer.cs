@@ -10,7 +10,7 @@ public class PlayerTransformer : MonoBehaviour {
 	public const string FORM_NON = "formNon"; // if still changing into form then the player is no form yet. so as default a wrong answer to the call.
 
 	private string _currentForm;
-
+	/*
 	public void TransformInto(string formString){
 		string changeTestString = "Change Into ";
 		switch (formString) {
@@ -36,7 +36,7 @@ public class PlayerTransformer : MonoBehaviour {
 
 		Debug.Log (changeTestString);
 	}
-
+*/
 	public string currentForm{
 		get{return _currentForm;}
 		set{_currentForm = value;}
