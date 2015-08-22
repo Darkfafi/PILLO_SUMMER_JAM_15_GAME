@@ -12,6 +12,9 @@ public class LevelSelectScript : MonoBehaviour {
     int nextLevel;
     int maxLevel;
     int minLevel;
+
+    float speed = 0.1f;
+	
     // Use this for initialization
     void Start () {
 
@@ -46,14 +49,28 @@ public class LevelSelectScript : MonoBehaviour {
             }
         }
 
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, CurrentLevelNode.transform.position.x, 0.05f), 
-			Mathf.Lerp(transform.position.y, CurrentLevelNode.transform.position.y, 0.05f), transform.position.z);
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, CurrentLevelNode.transform.position.x, speed), 
+			Mathf.Lerp(transform.position.y, CurrentLevelNode.transform.position.y, speed), transform.position.z);
 
-        //getbtn
+        //when pillo 1 shaked
         if (Input.GetKeyDown(KeyCode.A))
+        {
+            PreviousNode();
+            Debug.Log("previousnodeinvoked");
+        }
+		
+		//when pillo 2 shaked
+        if (Input.GetKeyDown(KeyCode.D))
         {
             NextNode();
             Debug.Log("nextnodeinvoked");
+        }
+		
+		//when both pillo's pressed
+		if (Input.GetKeyDown(KeyCode.W))
+        {
+            SelectCurrentNode();
+            Debug.Log("selected");
         }
     }
 	
@@ -72,4 +89,9 @@ public class LevelSelectScript : MonoBehaviour {
 			currentLevel--;
 		}
 	}
+	
+	void SelectCurrentNode()
+	{
+        Application.LoadLevel("Level"+currentLevel);
+    }
 }
