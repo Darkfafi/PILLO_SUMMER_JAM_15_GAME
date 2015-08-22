@@ -16,7 +16,7 @@ public class CameraShake : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_cCamera = this.GetComponent<Camera>();
-        Shake(0.08f);
+        Shake(0.04f);
 	}
 	
 	// Update is called once per frame
