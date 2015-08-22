@@ -12,14 +12,14 @@ public class PlayerControll : MonoBehaviour {
 
 		playerTransformer.currentForm = PlayerTransformer.FORM_DEFAULT;
 	}
-
+	/*
 	public void CheckFormCorrect(TargetForm target){
 		if(target.currentForm == playerTransformer.currentForm){
 			Debug.Log("Score");
 		}else{
 			Debug.Log("Lose Life");
 		}
-	}
+	}*/
 
 
 	/*
