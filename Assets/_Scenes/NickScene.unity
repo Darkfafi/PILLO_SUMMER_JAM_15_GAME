@@ -180,6 +180,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 654822656}
   - 212: {fileID: 654822655}
+  - 114: {fileID: 654822657}
   m_Layer: 0
   m_Name: EaseTest
   m_TagString: Untagged
@@ -225,3 +226,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &654822657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654822654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d433ea4c1429468f92f16eb6534ff60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
