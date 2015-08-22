@@ -14,4 +14,10 @@ public class LevelSystem : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void CompleteLevel()
+	{
+		print ("Yah Level complete");
+
+	}
 }

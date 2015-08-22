@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	private PillowState _pillowOneState;
 	private PillowState _pillowTwoState;
 	private float range;
+	public int matches;
 	public enum PillowState
 	{
 		RELEASED,
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 		_minSize = new Vector3 (1, 1, 0);
 		_maxSize = new Vector3 (3, 3, 0);
 		range = 0.3f;
+		matches = 0;
 		_currentSize = this.transform.localScale;
 		this.transform.localScale = new Vector3 (1, 1, 0);
 	}
@@ -70,10 +72,12 @@ public class PlayerController : MonoBehaviour {
 		{
 			_currentSize.x = _maxSize.x;
 		}
+
 		if (_currentSize.y > _maxSize.y)
 		{
 			_currentSize.y = _maxSize.y;
 		}
+
 		if (_pillowOneState == PillowState.PRESSED)
 		{
 			timerX = 0;
@@ -111,9 +115,12 @@ public class PlayerController : MonoBehaviour {
 	{
 		Vector3 minScaleRange = new Vector3 (shape.transform.localScale.x - range, shape.transform.localScale.y - range, 0);
 		Vector3 maxScaleRange = new Vector3 (shape.transform.localScale.x + range, shape.transform.localScale.y + range, 0);
+
 		print (minScaleRange + "space " + maxScaleRange + "this scale " + this.transform.localScale);
+
 		if (this.transform.localScale.x > minScaleRange.x && this.transform.localScale.x < maxScaleRange.x &&
-			this.transform.localScale.y > minScaleRange.y && this.transform.localScale.y < maxScaleRange.y) {
+			this.transform.localScale.y > minScaleRange.y && this.transform.localScale.y < maxScaleRange.y) 
+		{
 			return true;
 		}
 		return false;
@@ -122,10 +129,11 @@ public class PlayerController : MonoBehaviour {
 	public void CheckShape (GameObject shape)
 	{
 		if (InScaleRange(shape)) {
-			UpdateFaceTexture("blij1");
+			UpdateFaceTexture("Art/blij1");
+			matches++;
 			// scorepoint()
 		} else {
-			UpdateFaceTexture("sad1");
+			UpdateFaceTexture("Art/sad1");
 		//badstuff
 		}
 		Destroy(shape);
@@ -142,10 +150,5 @@ public class PlayerController : MonoBehaviour {
 		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
 		SpriteRenderer renderer = GameObject.FindGameObjectWithTag ("FaceObject").GetComponent<SpriteRenderer> ();
 		renderer.sprite = sprite;
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		
 	}
 }

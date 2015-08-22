@@ -42,7 +42,8 @@ public class TargetForm : MonoBehaviour {
 	private void OnPosition()
 	{
 			timer += Time.deltaTime;
-			if(timer >= 0.8f)
-				target.CheckShape(this.gameObject);
+		if(timer > 2.0f)
+			//highlighting
+			target.CheckShape(this.gameObject);
 	}
 }
