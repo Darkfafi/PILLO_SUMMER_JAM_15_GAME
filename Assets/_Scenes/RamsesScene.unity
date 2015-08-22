@@ -181,7 +181,6 @@ GameObject:
   - 4: {fileID: 530308656}
   - 212: {fileID: 530308655}
   - 114: {fileID: 530308654}
-  - 114: {fileID: 530308657}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -203,6 +202,9 @@ MonoBehaviour:
   _currentSize: {x: 0, y: 0, z: 0}
   _minSize: {x: 10, y: 10, z: 0}
   _maxSize: {x: 25, y: 25, z: 0}
+  PlayerBody: {fileID: 552056198}
+  PlayerFace: {fileID: 1522197009}
+  PlayerPattern: {fileID: 0}
 --- !u!212 &530308655
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -240,20 +242,10 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_Children:
   - {fileID: 1522197010}
+  - {fileID: 1320464331}
   - {fileID: 552056199}
   m_Father: {fileID: 586677512}
-  m_RootOrder: 2
---- !u!114 &530308657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 530308653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5596c94e670253746954a1c600a803d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_RootOrder: 1
 --- !u!1 &552056198
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 530308656}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!212 &552056200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -334,7 +326,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1640791298}
-  - {fileID: 1320464331}
   - {fileID: 530308656}
   - {fileID: 802175111}
   m_Father: {fileID: 0}
@@ -367,7 +358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 586677512}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &802175112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8f8491766a1b24c9d0704ad0d0523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveSpeed: 0
 --- !u!1 &1320464330
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +391,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1320464331}
   - 212: {fileID: 1320464332}
+  - 114: {fileID: 1320464333}
   m_Layer: 0
   m_Name: PatternPlayer
   m_TagString: Untagged
@@ -416,7 +409,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 586677512}
+  m_Father: {fileID: 530308656}
   m_RootOrder: 1
 --- !u!212 &1320464332
 SpriteRenderer:
@@ -444,6 +437,18 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1320464333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320464330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5596c94e670253746954a1c600a803d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternBody: {fileID: 552056198}
 --- !u!1 &1522197009
 GameObject:
   m_ObjectHideFlags: 0
