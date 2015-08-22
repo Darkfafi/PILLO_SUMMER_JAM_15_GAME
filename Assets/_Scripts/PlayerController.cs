@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour {
 	private PillowState _pillowOneState;
 	private PillowState _pillowTwoState;
 	private float range;
-	public int matches;
 	public enum PillowState
 	{
 		RELEASED,
@@ -32,7 +31,6 @@ public class PlayerController : MonoBehaviour {
 		_minSize = new Vector3 (1, 1, 0);
 		_maxSize = new Vector3 (3, 3, 0);
 		range = 0.3f;
-		matches = 0;
 		_currentSize = this.transform.localScale;
 		this.transform.localScale = new Vector3 (1, 1, 0);
 	}
@@ -130,7 +128,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (InScaleRange(shape)) {
 			UpdateFaceTexture("Art/blij1");
-			matches++;
+			(GameObject.FindGameObjectWithTag ("HighScoreController").GetComponent ("HighScoreController") as HighScoreController).IncreaseAmountOfMatches();
 			// scorepoint()
 		} else {
 			UpdateFaceTexture("Art/sad1");
