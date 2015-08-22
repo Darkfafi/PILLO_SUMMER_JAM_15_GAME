@@ -29,17 +29,6 @@ public class PlayerController : MonoBehaviour {
 		//test info 
 		Debug.Log (_sensitivityPilloOne);
 	}
-	
-	private GameObject FindGameObjectInRange()
-	{
-		RaycastHit hit;
-		//Player now will know if an object is interactable if the raycast hits.
-		if (Physics.Raycast (transform.position, fwd, out hit, maxDistance) && hit.transform.tag == "InterActive") {
-
-		}
-		return null;
-	}
-	
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		
