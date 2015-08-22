@@ -4,17 +4,23 @@ using Pillo;
 
 public class PlayerController : MonoBehaviour {
 
-	#region variable
+	#region variable/properties
+
 	private float _sensitivityPilloOne;
 	private float _sensitivityPilloTwo;
+	public  Vector3 _currentSize;
+	public Vector3 _minSize;
+	public Vector3 _maxSize;
+	private PillowState _pillowOneState;
+	private PillowState _pillowTwoState;
 
-	public enum CurrentState
+	private float scaler = 0.05f;
+	private float minusscaler = -0.05f;
+	public enum PillowState
 	{
-		RESTSTATE,
-		PRESSEDSTATE,
+		RELEASED,
+		PRESSED
 	}
-
-	public CurrentState state;
 	#endregion
 
 	// Use this for initialization
@@ -24,22 +30,58 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		UpdatePillowState ();
+		UpdateCurrentSize ();
+	}
+
+
+	private void UpdatePillowState()
+	{
 		_sensitivityPilloOne = PilloController.GetSensor (PilloID.Pillo1);
 		_sensitivityPilloTwo = PilloController.GetSensor (PilloID.Pillo2);
-		//test info 
-		Debug.Log (_sensitivityPilloOne);
-	}
-	
-	private GameObject FindGameObjectInRange()
-	{
-		RaycastHit hit;
-		//Player now will know if an object is interactable if the raycast hits.
-		if (Physics.Raycast (transform.position, fwd, out hit, maxDistance) && hit.transform.tag == "InterActive") {
-
+		if(_sensitivityPilloOne >= 1)
+		{
+			_pillowOneState = PillowState.PRESSED;
 		}
-		return null;
+		else
+		{
+			_pillowOneState = PillowState.RELEASED;
+		}
+		if(_sensitivityPilloTwo >= 1)
+		{
+			_pillowTwoState = PillowState.PRESSED;
+		}
+		else
+		{
+			_pillowTwoState = PillowState.RELEASED;
+		}
 	}
-	
+	private void UpdateCurrentSize()
+	{
+		_currentSize = this.transform.localScale;
+
+		if (_pillowOneState == PillowState.PRESSED && _pillowTwoState == PillowState.PRESSED && 
+		    this.transform.localScale.x < _maxSize.x && this.transform.localScale.y < _maxSize.y )
+		{
+
+
+		} else if(_pillowOneState == PillowState.PRESSED && _pillowTwoState == PillowState.RELEASED && 
+		          this.transform.localScale.x <= _maxSize.x && this.transform.localScale.y >= _minSize.y )
+		{
+			float x = _currentSize.x + _currentSize.x * scaler;
+			float y = _currentSize.y + _currentSize.y * minusscaler;
+			this.transform.localScale = new Vector3(x, y, 0);
+			Debug.Log(_currentSize);
+		}
+		else if(_pillowOneState == PillowState.RELEASED && _pillowTwoState == PillowState.PRESSED &&
+		        this.transform.localScale.x > _minSize.x && this.transform.localScale.y < _maxSize.y){
+		}
+		else if(_pillowOneState == PillowState.RELEASED && _pillowTwoState == PillowState.RELEASED &&
+		        this.transform.localScale.x < _minSize.x && this.transform.localScale.y < _minSize.y)
+		{
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		
