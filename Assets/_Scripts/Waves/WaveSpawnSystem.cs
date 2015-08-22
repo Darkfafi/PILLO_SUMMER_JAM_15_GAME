@@ -13,12 +13,10 @@ public class WaveSpawnSystem : MonoBehaviour {
 	
 	}
 
-
 	void CreateTargetShape(int difficulty = 1){
 		GameObject targetShape = (GameObject)Resources.Load("Prefaps/TargetShape");
 
-		Vector3 tempScaleVec = new Vector3 (Random.Range (10, 20), Random.Range (10, 20), 1);
-
+		Vector3 tempScaleVec = new Vector3 (Random.Range (1, 3), Random.Range (1, 3), 1);
 		targetShape.transform.localScale = tempScaleVec;
 
 		Vector3 spawnPoint = new Vector3 (0,0,10);
@@ -32,7 +30,6 @@ public class WaveSpawnSystem : MonoBehaviour {
 			spawnPoint.x = Camera.main.pixelWidth * Random.Range(0,2);
 			spawnPoint.y = Random.Range(1,Camera.main.pixelHeight);
 		}
-
 		targetShape.GetComponent<TargetForm> ().speed = 3;
 
 		Instantiate (targetShape,Camera.main.ScreenToWorldPoint(spawnPoint),Quaternion.identity);

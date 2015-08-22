@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		_sensitivityPilloOne = PilloController.GetSensor (PilloID.Pillo1);
 		_sensitivityPilloTwo = PilloController.GetSensor (PilloID.Pillo2);
-		if(_sensitivityPilloOne >= 1)
+		if(_sensitivityPilloOne >= 0.1f)
 		{
 			_pillowOneState = PillowState.PRESSED;
 		}
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			_pillowOneState = PillowState.RELEASED;
 		}
-		if(_sensitivityPilloTwo >= 1)
+		if(_sensitivityPilloTwo >= 0.1f)
 		{
 			_pillowTwoState = PillowState.PRESSED;
 		}
@@ -76,31 +76,31 @@ public class PlayerController : MonoBehaviour {
 		if (_pillowOneState == PillowState.PRESSED)
 		{
 			timerX = 0;
-			_currentSize.x += 0.8f * Time.deltaTime;
+			_currentSize.x += 2.8f * Time.deltaTime * _sensitivityPilloOne;
 			_currentSize.y -= 0.2f * Time.deltaTime;
 		}
 		else if (_pillowOneState == PillowState.RELEASED)
 		{
 			_currentSize.x -= 0.3f * Time.deltaTime;
 			timerX += Time.deltaTime;
-			if (timerX > 0.8f)
+			if (timerX > 0f)
 			{
-				_currentSize.x = Mathf.Lerp(_currentSize.x, 1, 0.05f);
+				_currentSize.x = Mathf.Lerp(_currentSize.x, 1, 0.02f);
 			}
 		}
 		if (_pillowTwoState == PillowState.PRESSED)
 		{
 			timerY = 0;
-			_currentSize.y += 0.8f * Time.deltaTime;
+			_currentSize.y += 2.8f * Time.deltaTime * _sensitivityPilloTwo;
 			_currentSize.x -= 0.2f * Time.deltaTime;
 		}
 		else if (_pillowTwoState == PillowState.RELEASED)
 		{
 			_currentSize.y -= 0.3f * Time.deltaTime;
 			timerY += Time.deltaTime;
-			if (timerY > 0.8f)
+			if (timerY > 0)
 			{
-				_currentSize.y = Mathf.Lerp(_currentSize.y, 1, 0.05f);
+				_currentSize.y = Mathf.Lerp(_currentSize.y, 1, 0.02f);
 			}
 		}
 		transform.localScale = _currentSize;
@@ -108,11 +108,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void CheckShape (float scaleX, float scaleY, GameObject shape)
 	{
-		if (_currentSize.x > 0.8f * scaleX && 
-		    _currentSize.x < 1.2f * scaleX && 
-		    _currentSize.y > 0.8f * scaleY && 
-		    _currentSize.y < 1.2f * scaleY) {
-			Destroy(shape);
+		if (_currentSize.x > 0.5f * scaleX && 
+		    _currentSize.x < 1.5f * scaleX && 
+		    _currentSize.y > 0.5f * scaleY && 
+		    _currentSize.y < 1.5f * scaleY) {
 			UpdateFaceTexture("blij1");
 			// scorepoint()
 		} else {
@@ -131,7 +130,8 @@ public class PlayerController : MonoBehaviour {
 	private void UpdateFaceTexture(string textureName)
 	{
 		Sprite sprite = Resources.Load (textureName, typeof(Sprite)) as Sprite;
-		this.GetComponentInChildren<SpriteRenderer> ().sprite = sprite;
+		SpriteRenderer renderer = GameObject.FindGameObjectWithTag ("FaceObject").GetComponent<SpriteRenderer> ();
+		renderer.sprite = sprite;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
