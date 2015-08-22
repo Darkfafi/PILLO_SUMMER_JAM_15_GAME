@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	private float timerX;
 	private PillowState _pillowOneState;
 	private PillowState _pillowTwoState;
+	private float range;
 	public enum PillowState
 	{
 		RELEASED,
@@ -22,7 +23,6 @@ public class PlayerController : MonoBehaviour {
 	}
 	private GameObject PlayerBody;
 	private GameObject PlayerFace;
-
 	#endregion
 
 	// Use this for initialization
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 		PilloController.ConfigureSensorRange(0x50, 0x6f);
 		_minSize = new Vector3 (1, 1, 0);
 		_maxSize = new Vector3 (3, 3, 0);
+		range = 0.3f;
 		_currentSize = this.transform.localScale;
 		this.transform.localScale = new Vector3 (1, 1, 0);
 	}
@@ -106,12 +107,21 @@ public class PlayerController : MonoBehaviour {
 		transform.localScale = _currentSize;
 	}
 
-	public void CheckShape (float scaleX, float scaleY, GameObject shape)
+	private bool InScaleRange(GameObject shape)
 	{
-		if (_currentSize.x > 0.5f * scaleX && 
-		    _currentSize.x < 1.5f * scaleX && 
-		    _currentSize.y > 0.5f * scaleY && 
-		    _currentSize.y < 1.5f * scaleY) {
+		Vector3 minScaleRange = new Vector3 (shape.transform.localScale.x - range, shape.transform.localScale.y - range, 0);
+		Vector3 maxScaleRange = new Vector3 (shape.transform.localScale.x + range, shape.transform.localScale.y + range, 0);
+		print (minScaleRange + "space " + maxScaleRange + "this scale " + this.transform.localScale);
+		if (this.transform.localScale.x > minScaleRange.x && this.transform.localScale.x < maxScaleRange.x &&
+			this.transform.localScale.y > minScaleRange.y && this.transform.localScale.y < maxScaleRange.y) {
+			return true;
+		}
+		return false;
+	}
+
+	public void CheckShape (GameObject shape)
+	{
+		if (InScaleRange(shape)) {
 			UpdateFaceTexture("blij1");
 			// scorepoint()
 		} else {

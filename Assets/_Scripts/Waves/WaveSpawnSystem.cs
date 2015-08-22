@@ -30,7 +30,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 			spawnPoint.x = Camera.main.pixelWidth * Random.Range(0,2);
 			spawnPoint.y = Random.Range(1,Camera.main.pixelHeight);
 		}
-		targetShape.GetComponent<TargetForm> ().speed = 3;
+		targetShape.GetComponent<TargetForm> ().speed = 1;
 
 		Instantiate (targetShape,Camera.main.ScreenToWorldPoint(spawnPoint),Quaternion.identity);
 	}

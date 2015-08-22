@@ -14,14 +14,14 @@ public class TargetForm : MonoBehaviour {
 		target = (PlayerController)GameObject.FindGameObjectWithTag("Player").GetComponent("PlayerController");
 		startPos = transform.position;
 
-		range = 0.5f;
+		range = 0.02f;
 	}
 
 	void Update(){
 		Vector2 dir = new Vector2 (target.transform.position.x - transform.position.x,target.transform.position.y - transform.position.y);
 		float realSpeed = (((transform.position.magnitude / startPos.magnitude) +  0.35f) * speed) * Time.deltaTime;
 		dir.Normalize ();
-		transform.position = new Vector3(transform.position.x + dir.x * realSpeed,transform.position.y + dir.y * realSpeed, 0.15f);
+		transform.position = new Vector3(transform.position.x + dir.x * realSpeed,transform.position.y + dir.y * realSpeed, 0.015f);
 		if (InRange()) {
 			OnPosition();
 		}
@@ -43,6 +43,6 @@ public class TargetForm : MonoBehaviour {
 	{
 			timer += Time.deltaTime;
 			if(timer >= 0.8f)
-				target.CheckShape(1.0f , 1.0f, this.gameObject);
+				target.CheckShape(this.gameObject);
 	}
 }
