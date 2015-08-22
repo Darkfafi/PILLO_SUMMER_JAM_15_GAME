@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 454892}
   - 212: {fileID: 21214222}
   - 114: {fileID: 11450070}
+  - 114: {fileID: 11458184}
   m_Layer: 0
   m_Name: TargetShape
   m_TagString: TargetShape
@@ -26,10 +27,14 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+  m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+<<<<<<< HEAD
   m_LocalScale: {x: 2, y: 2, z: 1}
 =======
   m_LocalScale: {x: 1, y: 1, z: 1}
 >>>>>>> origin/master
+>>>>>>> 5eb27e75b6a5735a2343140e48de8b865f1abd53
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,8 +49,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71d19f5fc4b5f24991f8e1c7159f2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  speed: .200000003
+  range: 0
+--- !u!114 &11458184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3a859311380a478b8743ef51945fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+=======
   speed: 1
   range: 0
+>>>>>>> 5eb27e75b6a5735a2343140e48de8b865f1abd53
 --- !u!212 &21214222
 SpriteRenderer:
   m_ObjectHideFlags: 1

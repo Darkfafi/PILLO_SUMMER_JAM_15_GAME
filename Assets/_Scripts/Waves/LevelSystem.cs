@@ -8,11 +8,12 @@ public class LevelSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		waveSpawn = GetComponent<WaveSpawnSystem> ();
-		highScoreController = (GameObject.FindGameObjectWithTag ("HighScoreController").GetComponent ("HighScoreController") as HighScoreController);
+		//highScoreController = (GameObject.FindGameObjectWithTag ("HighScoreController").GetComponent ("HighScoreController") as HighScoreController);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		if(highScoreController.GetCurrentLevelAmountOfMatches() >= 5)
 		{
 			CompleteLevel();
@@ -20,7 +21,7 @@ public class LevelSystem : MonoBehaviour {
 		if (highScoreController.GetCurrentPlayTimeAmountOfMatches() >= 10) 
 		{
 			GameOver();
-		}
+		}*/
 	}
 
 	public void CompleteLevel()
