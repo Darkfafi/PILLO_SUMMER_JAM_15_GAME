@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TargetTestForm : MonoBehaviour {
+public class LevelSystem : MonoBehaviour {
 
-	public const string UNREVEALED_FORM =  "UnrevealedForm";
+	WaveSpawnSystem waveSpawn;
 
 	// Use this for initialization
 	void Start () {
-	
+		waveSpawn = GetComponent<WaveSpawnSystem> ();
 	}
-
-
+	
 	// Update is called once per frame
 	void Update () {
 	
