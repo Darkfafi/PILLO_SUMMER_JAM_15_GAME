@@ -8,11 +8,13 @@ public class WaveSpawnSystem : MonoBehaviour {
 	private float minTimeBetweenSpawn;
 	private float timer;
 	public float waveSpeed;
+	public PlayerController player;
 
 	// Use this for initialization
 	void Start () {
 		minTimeBetweenSpawn = 1.5f;
 		waveSpeed = -0.0005f;
+		//Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -42,7 +44,8 @@ public class WaveSpawnSystem : MonoBehaviour {
 
 		GameObject targetShape = (GameObject)Resources.Load("Prefaps/TargetShape");
 
-		Vector3 tempScaleVec = new Vector3 (Random.Range (1, 3), Random.Range (1, 3), 1);
+		Vector3 tempScaleVec = new Vector3 (Random.Range (player._minSize.x,  player._maxSize.x), Random.Range (player._minSize.y, player._maxSize.y), 1);
+		print (player._minSize + "max " + player._maxSize);
 		targetShape.transform.localScale = tempScaleVec;
 
 		Vector3 spawnPoint = new Vector3 (0,0,10);

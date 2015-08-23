@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 		_minSize = new Vector3 (10, 10, 0);
 		_maxSize = new Vector3 (30, 30, 0);
 		this.transform.localScale = new Vector3 (1, 1, 0);
+		PlayerFace.transform.localScale = new Vector3 (10, 10, 0);
 	}
 
 	// Update is called once per frame
