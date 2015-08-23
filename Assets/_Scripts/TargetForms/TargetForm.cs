@@ -100,6 +100,7 @@ public class TargetForm : MonoBehaviour {
         } 
 		else if (!isCorrect){
 			target.GetComponent<PlayerController>().UpdateFaceTexture("sad1");
+			target.GetComponentInChildren<PatternSwitcher> ().SwitchPattern ("pattern1");
 			//badstuff
 		}
 		//Destroy(this.gameObject);
