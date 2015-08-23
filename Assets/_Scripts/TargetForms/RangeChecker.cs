@@ -29,7 +29,7 @@ public class RangeChecker : MonoBehaviour {
 		
 		Vector3 minScaleRange = new Vector3 (baseScaleX - scalerRange, baseScaleY - scalerRange, 1);
 		Vector3 maxScaleRange = new Vector3 (baseScaleX + scalerRange, baseScaleY + scalerRange, 1);
-		print (minScaleRange + "max " + maxScaleRange + " player" + _playerBody.transform.localScale);
+		//print (minScaleRange + "max " + maxScaleRange + " player" + _playerBody.transform.localScale);
 		if (_playerBody.transform.localScale.x > minScaleRange.x && _playerBody.transform.localScale.x < maxScaleRange.x &&
 		    _playerBody.transform.localScale.y > minScaleRange.y && _playerBody.transform.localScale.y < maxScaleRange.y) {
 			return true;

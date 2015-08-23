@@ -15,13 +15,16 @@ public class TargetForm : MonoBehaviour {
     private bool isInRange = false;
     private bool isCorrect = false;
 
+	private Animator anim;
+
     private float baseScaleX = 0;
     private float baseScaleY = 0;
 
     void Start(){
 		target = (PlayerController)GameObject.FindGameObjectWithTag("Player").GetComponent("PlayerController");
 		startPos = transform.position;
-
+	
+		anim = target.gameObject.GetComponentInChildren<Animator> ();
 		positionRange = 0.2f;
 		scalerRange = 5.0f;
 	}
@@ -86,19 +89,21 @@ public class TargetForm : MonoBehaviour {
             }
 			else
 			{
-                print("loss");
+     //           print("loss");
             }
 			GameObject.FindGameObjectWithTag("Player").GetComponent<LevelPointsController>().decrLife();
 
 			Camera.main.GetComponent<CameraShake>().Shake(0.04f);
+			anim.SetTrigger("lose");
 			Destroy(this.gameObject);
         }
 		if (InScaleRange()) {
 			target.GetComponent<PlayerController>().UpdateFaceTexture("blij1");
             isCorrect = true;
-            print("yeahhh");
-			GameObject.FindGameObjectWithTag("Player").GetComponent<LevelPointsController>().incrPoints();
+      //      print("yeahhh");
 
+			GameObject.FindGameObjectWithTag("Player").GetComponent<LevelPointsController>().incrPoints();
+			anim.SetTrigger("score");
 			Destroy(this.gameObject,0.4f);
 
 			
@@ -115,7 +120,7 @@ public class TargetForm : MonoBehaviour {
 		Vector3 minScaleRange = new Vector3 (baseScaleX - scalerRange, baseScaleY - scalerRange, 1);
 		Vector3 maxScaleRange = new Vector3 (baseScaleX + scalerRange, baseScaleY + scalerRange, 1);
 
-		print (minScaleRange + " maxscale" + maxScaleRange);
+	//	print (minScaleRange + " maxscale" + maxScaleRange);
         GameObject _playerBody = target.GetComponent<PlayerController>().PlayerBody;
         if (_playerBody.transform.localScale.x > minScaleRange.x && _playerBody.transform.localScale.x < maxScaleRange.x &&
 			_playerBody.transform.localScale.y > minScaleRange.y && _playerBody.transform.localScale.y < maxScaleRange.y) {

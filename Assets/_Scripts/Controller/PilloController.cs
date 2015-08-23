@@ -22,14 +22,13 @@ public class PilloController : MonoBehaviour
             pc = this;
             DontDestroyOnLoad(this.gameObject);
         }
+		MakeReceiver ();
     }
 
 	// Do not change this code
 	void Start()
 	{
-		if (m_receiver == null)
-			m_receiver = new PilloReceiver();
-		m_receiver.Connect();
+		MakeReceiver ();
 	}
 	void OnDestroy()
 	{
@@ -39,6 +38,14 @@ public class PilloController : MonoBehaviour
 			    m_receiver.Dispose();
 		    m_receiver = null;
         }
+	}
+
+	private static void MakeReceiver()
+	{
+		if (m_receiver == null) {
+			m_receiver = new PilloReceiver ();
+		}
+		m_receiver.Connect();
 	}
 	// Below are the API calls that can be used
 	public static void ConfigureSensorRange(int min, int max)
@@ -85,10 +92,12 @@ public class PilloController : MonoBehaviour
 	}
 	public static float GetSensor(PilloID pillo)
 	{
+	//	MakeReceiver ();
 		return m_receiver.GetSensor(pillo, PilloSensor.Sensor1);
 	}
 	public static float GetSensor(PilloID pillo, PilloSensor sensor)
 	{
+	//	MakeReceiver ();
 		return m_receiver.GetSensor(pillo, sensor);
 	}
 

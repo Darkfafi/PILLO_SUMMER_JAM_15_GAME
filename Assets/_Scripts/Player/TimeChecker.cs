@@ -24,37 +24,34 @@ public class TimeChecker : MonoBehaviour {
 			print(timerPillowTwo + "pilloTwo");
 		}
 
-		if (timerPillowOne >= 3.0f && timerPillowTwo >= 3.0f)
-		{
-			DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Settings"));
+		if (timerPillowOne >= 3.0f && timerPillowTwo >= 3.0f) {
+			DontDestroyOnLoad (GameObject.FindGameObjectWithTag ("Settings"));
 			//random
-			float random = Random.Range(1,10);
-			if(random > 5)
-			{
-				Application.LoadLevel("");
+			float random = Random.Range (1, 10);
+			if (random > 5) {
+				Application.LoadLevel ("level1");
 				print ("1.1");
 				//playerOne
-			}else{
+			} else {
 				//playerTwo
-				Application.LoadLevel("");
+				Application.LoadLevel ("level1");
 				print ("2.1");
 			}
-		if (timerPillowOne >= 3.0f && timerPillowTwo <= 3.0f)
+		}
+		else if (timerPillowOne >= 3.0f && timerPillowTwo <= 3.0f)
 		{
 			DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Settings"));
 
-			Application.LoadLevel("");
+			Application.LoadLevel("level1");
 			//playertextures 1
 			print ("1");
 		}
-		if (timerPillowTwo >= 3.0f && timerPillowOne <= 3.0f) 
+		else if (timerPillowTwo >= 3.0f && timerPillowOne <= 3.0f) 
 		{
 			DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Settings"));
 			//playertextures 2
-			Application.LoadLevel("");
+			Application.LoadLevel("level1");
 			print ("2");
-		}
-
 		}
 	}
 }

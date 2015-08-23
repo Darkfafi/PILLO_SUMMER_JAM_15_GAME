@@ -6,6 +6,7 @@ public class LevelPointsController : MonoBehaviour {
 	public int life;
 	private GameObject gameOverScreen;
 	public int pointsToComplete;
+	public GameObject parcle;
 	private int currentPoints;
 
 
@@ -40,6 +41,8 @@ public class LevelPointsController : MonoBehaviour {
 	public void incrPoints()
 	{
 		currentPoints++;
+		GameObject parcleInstance = Instantiate (parcle, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
+		Destroy (parcleInstance, 0.5f);
 	}
 
 	private void GameOver()
