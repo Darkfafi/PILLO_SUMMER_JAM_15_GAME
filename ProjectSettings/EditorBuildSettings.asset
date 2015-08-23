@@ -9,3 +9,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/Level1.unity
   - enabled: 1
     path: Assets/_Scenes/GameScenes/RoadMap.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/StartGame.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/CharacterSelect.unity
