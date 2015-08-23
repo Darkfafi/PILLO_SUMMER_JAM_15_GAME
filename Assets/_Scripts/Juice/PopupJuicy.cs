@@ -23,9 +23,10 @@ public class PopupJuicy : MonoBehaviour {
         
         transform.localScale = new Vector3(s, s, s);
 		
-		if (timer >= 3)
+		if (timer >= 1.5f)
 		{
             //print("LOAD NEW LEVEL NAO");
+			Application.LoadLevel(1);
         }
     }
 }

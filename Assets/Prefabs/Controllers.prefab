@@ -166,6 +166,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &186954
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445136}
+  - 212: {fileID: 21257816}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &195436
 GameObject:
   m_ObjectHideFlags: 1
@@ -230,6 +246,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 455328}
   m_RootOrder: 2
+--- !u!4 &445136
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 455328}
+  m_RootOrder: 3
 --- !u!4 &448514
 Transform:
   m_ObjectHideFlags: 1
@@ -271,6 +299,7 @@ Transform:
   - {fileID: 416584}
   - {fileID: 477024}
   - {fileID: 438638}
+  - {fileID: 445136}
   m_Father: {fileID: 448514}
   m_RootOrder: 0
 --- !u!4 &456302
@@ -421,13 +450,13 @@ MonoBehaviour:
   minTimeBetweenSpawn: 0
   waveSpeed: 0
   player: {fileID: 11423090}
-  LevelNumber: 0
-  amountOfNormalShapesInLevel: 10
-  amountOfBlackShapesInLevel: 10
+  LevelNumber: 1
+  amountOfNormalShapesInLevel: 6
+  amountOfBlackShapesInLevel: 0
   moveSpeedNormalShapesInLevel: 2
   moveSpeedBlackShapesInLevel: 1.20000005
   checkTimeForLevel: 3
-  waitTime: 8
+  waitTime: 6
 --- !u!114 &11465934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -491,6 +520,32 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5fd4ddb64fda4a44799f7e36f9262ddc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!212 &21257816
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186954}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: -10
+  m_Sprite: {fileID: 21300000, guid: 5a871c186832fbe46abf1c9f8f283fa5, type: 3}
+  m_Color: {r: .545667052, g: .775268734, b: .886274517, a: 1}
 --- !u!212 &21259890
 SpriteRenderer:
   m_ObjectHideFlags: 1

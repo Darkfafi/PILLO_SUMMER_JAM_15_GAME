@@ -10,7 +10,7 @@ public class RangeChecker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		target = (PlayerController)GameObject.FindGameObjectWithTag("Player").GetComponent("PlayerController");
-		scalerRange = 3.0f;
+		scalerRange = 5f;
 		transform.localScale = new Vector3 (20, 20, 0);
 		baseScaleX = transform.localScale.x;
 		baseScaleY = transform.localScale.y;
@@ -19,7 +19,7 @@ public class RangeChecker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (InScaleRange ()) {
-			Application.LoadLevel("CharacterSelect");
+			Application.LoadLevel("RoadMap");
 		}
 	}
 
@@ -29,6 +29,7 @@ public class RangeChecker : MonoBehaviour {
 		
 		Vector3 minScaleRange = new Vector3 (baseScaleX - scalerRange, baseScaleY - scalerRange, 1);
 		Vector3 maxScaleRange = new Vector3 (baseScaleX + scalerRange, baseScaleY + scalerRange, 1);
+		print (minScaleRange + "  t" + maxScaleRange + " p " + _playerBody.transform.localScale);
 		//print (minScaleRange + "max " + maxScaleRange + " player" + _playerBody.transform.localScale);
 		if (_playerBody.transform.localScale.x > minScaleRange.x && _playerBody.transform.localScale.x < maxScaleRange.x &&
 		    _playerBody.transform.localScale.y > minScaleRange.y && _playerBody.transform.localScale.y < maxScaleRange.y) {

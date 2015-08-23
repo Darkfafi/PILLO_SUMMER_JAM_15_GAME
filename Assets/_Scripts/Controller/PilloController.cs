@@ -23,7 +23,6 @@ public class PilloController : MonoBehaviour
             pc = this;
             DontDestroyOnLoad(this.gameObject);
         }
-		MakeReceiver ();
     }
 
 	// Do not change this code

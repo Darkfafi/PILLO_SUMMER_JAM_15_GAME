@@ -220,7 +220,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486184, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
+      propertyPath: LevelNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
+      propertyPath: amountOfNormalShapesInLevel
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
+      propertyPath: amountOfBlackShapesInLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
+      propertyPath: waitTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
+      propertyPath: moveSpeedNormalShapesInLevel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}

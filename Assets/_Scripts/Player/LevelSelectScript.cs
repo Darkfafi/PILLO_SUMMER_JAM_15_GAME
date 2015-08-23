@@ -28,7 +28,7 @@ public class LevelSelectScript : MonoBehaviour {
 
         maxLevel = LevelNodes.Length;
 
-        PlayerProgressSaveAndLoad.SetLevel(4);
+        //PlayerProgressSaveAndLoad.SetLevel(4);
 
     }
 	
