@@ -48,7 +48,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 		print (player._minSize + "max " + player._maxSize);
 		targetShape.transform.localScale = tempScaleVec;
 
-		Vector3 spawnPoint = new Vector3 (0,0,10);
+		Vector3 spawnPoint = new Vector3 (0,0,0);
 
 		if (Random.Range (0, 2) > 0) {
 
