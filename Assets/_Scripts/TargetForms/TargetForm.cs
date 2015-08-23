@@ -68,7 +68,6 @@ public class TargetForm : MonoBehaviour {
 		{
 			wobbleTimer += Time.deltaTime;
 			float _wobble = 1 - Mathf.Sin(Time.time * (wobbleTimer * 3f)) * 0.2f;
-			
 			transform.localScale = new Vector3(_wobble * baseScaleX, _wobble * baseScaleY, 1f);
 		}
         
@@ -111,7 +110,6 @@ public class TargetForm : MonoBehaviour {
 		Vector3 minScaleRange = new Vector3 (baseScaleX - scalerRange, baseScaleY - scalerRange, 1);
 		Vector3 maxScaleRange = new Vector3 (baseScaleX + scalerRange, baseScaleY + scalerRange, 1);
 
-		print (minScaleRange + " maxscale" + maxScaleRange);
         GameObject _playerBody = target.GetComponent<PlayerController>().PlayerBody;
         if (_playerBody.transform.localScale.x > minScaleRange.x && _playerBody.transform.localScale.x < maxScaleRange.x &&
 			_playerBody.transform.localScale.y > minScaleRange.y && _playerBody.transform.localScale.y < maxScaleRange.y) {
