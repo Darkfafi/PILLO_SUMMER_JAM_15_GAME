@@ -20,12 +20,12 @@ public class PopupJuicy : MonoBehaviour {
         timer += Time.deltaTime;
 		
         float s = Easing.ElasticEaseOut(timer, start, destination, totaltime);
-
+        
         transform.localScale = new Vector3(s, s, s);
 		
 		if (timer >= 3)
 		{
-            print("LOAD NEW LEVEL NAO");
+            //print("LOAD NEW LEVEL NAO");
         }
     }
 }

@@ -21,7 +21,7 @@ public class HiddenObject : MonoBehaviour {
 	}
 
 	void HideForm(){
-		transform.localScale = new Vector3 (2, 2, 1);
+		transform.localScale = new Vector3 (20, 20, 1);
 		if (GetComponent<SpriteRenderer> () != null) {
 			GetComponent<SpriteRenderer> ().color = Color.black;
 		}

@@ -11,6 +11,7 @@ public class PilloController : MonoBehaviour
 {
 	protected static PilloReceiver m_receiver = null;
     public static PilloController pc;
+	public float id;
 
     //This checks if the current PilloController is the first one.
     //If not it will dispose this PilloController.
@@ -28,6 +29,7 @@ public class PilloController : MonoBehaviour
 	// Do not change this code
 	void Start()
 	{
+		id = Random.value;
 		MakeReceiver ();
 	}
 	void OnDestroy()

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class LevelSelectScript : MonoBehaviour {
@@ -13,6 +14,8 @@ public class LevelSelectScript : MonoBehaviour {
     int maxLevel;
     int minLevel;
 
+    bool shakeEnable = false;
+
     float speed = 0.1f;
 	
     // Use this for initialization
@@ -25,6 +28,8 @@ public class LevelSelectScript : MonoBehaviour {
 
         maxLevel = LevelNodes.Length;
 
+        PlayerProgressSaveAndLoad.SetLevel(4);
+
     }
 	
 	// Update is called once per frame
@@ -32,21 +37,53 @@ public class LevelSelectScript : MonoBehaviour {
 		
 		foreach (GameObject node in LevelNodes)
 		{
+            if (PlayerProgressSaveAndLoad.GetLevel() >= node.GetComponent<NodeScript>().LevelNumber)
+            {
+                node.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                node.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            }
+
             if (node.GetComponent<NodeScript>().LevelNumber == currentLevel)
             {
+                if (shakeEnable)
+                {
+                    node.GetComponent<ShakeNo>().DoShake();
+                    shakeEnable = false;
+                }
+                
+                if (PlayerProgressSaveAndLoad.GetLevel() < currentLevel)
+                {
+                    print("you have not unlocked "+currentLevel);
+                    currentLevel--;
+                    shakeEnable = true;
+                    
+                    
+                }
                 CurrentLevelNode = node;
-				
+                node.GetComponent<BreatheScript>().enabled = true;
+                
             }
-			 if (node.GetComponent<NodeScript>().LevelNumber == currentLevel + 1 && currentLevel < maxLevel)
+            else
             {
-                NextLevelNode = node;
-				
+                node.GetComponent<BreatheScript>().enabled = false;
+                
             }
-			if (node.GetComponent<NodeScript>().LevelNumber == currentLevel - 1 && currentLevel > minLevel)
+            if (PlayerProgressSaveAndLoad.GetLevel() < currentLevel)
             {
-                PreviousLevelNode = node;
-				
+                
             }
+            /*if (node.GetComponent<NodeScript>().LevelNumber == currentLevel + 1 && currentLevel < maxLevel)
+           {
+               NextLevelNode = node;
+           }
+           if (node.GetComponent<NodeScript>().LevelNumber == currentLevel - 1 && currentLevel > minLevel)
+           {
+               PreviousLevelNode = node;
+
+           }*/
         }
 
         transform.position = new Vector3(Mathf.Lerp(transform.position.x, CurrentLevelNode.transform.position.x, speed), 
@@ -86,7 +123,7 @@ public class LevelSelectScript : MonoBehaviour {
 	{
 		if (currentLevel > minLevel)
 		{
-			currentLevel--;
+            currentLevel--;
 		}
 	}
 	

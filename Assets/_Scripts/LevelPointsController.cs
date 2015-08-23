@@ -49,6 +49,7 @@ public class LevelPointsController : MonoBehaviour {
 	{
 		gameOverScreen.SetActive(true);
 		gameOverScreen.GetComponent<GameOverScreen>().isGameOver = true;
+		
 	}
 
 

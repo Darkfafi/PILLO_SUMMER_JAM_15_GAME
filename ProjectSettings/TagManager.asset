@@ -10,6 +10,7 @@ TagManager:
   - FaceObject
   - TargetShape
   - Settings
+  - GameOverScreen
   layers:
   - Default
   - TransparentFX

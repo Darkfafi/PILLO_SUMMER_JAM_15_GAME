@@ -16,6 +16,7 @@ public class TargetForm : MonoBehaviour {
     private bool isCorrect = false;
 
 	private Animator anim;
+	public float maxCheckTime = 3f;
 
     private float baseScaleX = 0;
     private float baseScaleY = 0;
@@ -81,7 +82,7 @@ public class TargetForm : MonoBehaviour {
 	public void CheckShape()
 	{
 		timer += Time.deltaTime;
-		if (timer >= 3f)
+		if (timer >= maxCheckTime)
         {
 			if(InScaleRange())
 			{
@@ -111,6 +112,7 @@ public class TargetForm : MonoBehaviour {
         } 
 		else if (!isCorrect){
 			target.GetComponent<PlayerController>().UpdateFaceTexture("sad1");
+			target.GetComponentInChildren<PatternSwitcher> ().SwitchPattern ("pattern1"); // test
 		}
 		//Destroy(this.gameObject);
 	}
