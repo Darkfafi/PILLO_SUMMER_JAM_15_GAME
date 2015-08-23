@@ -18,9 +18,9 @@ public class PatternSwitcher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.GetComponent<SpriteRenderer> ().sprite = GivePattern (_currentPatternName,(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.x * 87),(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.y * 88));
+		gameObject.GetComponent<SpriteRenderer> ().sprite = GivePattern (_currentPatternName,(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.x * 86),(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.y * 88));
 		if (_prePatternName != null) {
-			fadePattern.GetComponent<SpriteRenderer> ().sprite = GivePattern (_prePatternName,(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.x * 87),(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.y * 88));
+			fadePattern.GetComponent<SpriteRenderer> ().sprite = GivePattern (_prePatternName,(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.x * 86),(int)(patternBody.GetComponent<SpriteRenderer>().bounds.size.y * 88));
 		}
 	}
 
