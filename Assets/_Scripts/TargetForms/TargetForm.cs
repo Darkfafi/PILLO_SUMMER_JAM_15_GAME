@@ -30,8 +30,8 @@ public class TargetForm : MonoBehaviour {
 		Vector2 dir = new Vector2 (target.transform.position.x - transform.position.x,target.transform.position.y - transform.position.y);
 		float realSpeed = (((transform.position.magnitude / startPos.magnitude) +  0.35f) * speed) * Time.deltaTime;
 		dir.Normalize ();
-		//transform.position = new Vector3(transform.position.x + dir.x * realSpeed,transform.position.y + dir.y * realSpeed, 0.015f);
-		transform.position = new Vector3(transform.position.x + dir.x * 10* Time.deltaTime ,transform.position.y + dir.y * 10* Time.deltaTime, 0.015f);
+		transform.position = new Vector3(transform.position.x + dir.x * realSpeed,transform.position.y + dir.y * realSpeed, 0.015f);
+	//	transform.position = new Vector3(transform.position.x + dir.x * 10* Time.deltaTime ,transform.position.y + dir.y * 10* Time.deltaTime, 0.015f);
 
 		if (InRange()) {
 			OnPosition();
@@ -68,6 +68,7 @@ public class TargetForm : MonoBehaviour {
 		{
 			wobbleTimer += Time.deltaTime;
 			float _wobble = 1 - Mathf.Sin(Time.time * (wobbleTimer * 3f)) * 0.2f;
+			
 			transform.localScale = new Vector3(_wobble * baseScaleX, _wobble * baseScaleY, 1f);
 		}
         
@@ -87,20 +88,24 @@ public class TargetForm : MonoBehaviour {
 			{
                 print("loss");
             }
+			GameObject.FindGameObjectWithTag("Player").GetComponent<LevelPointsController>().decrLife();
 
+			Camera.main.GetComponent<CameraShake>().Shake(0.04f);
 			Destroy(this.gameObject);
         }
 		if (InScaleRange()) {
 			target.GetComponent<PlayerController>().UpdateFaceTexture("blij1");
             isCorrect = true;
             print("yeahhh");
+			GameObject.FindGameObjectWithTag("Player").GetComponent<LevelPointsController>().incrPoints();
+
 			Destroy(this.gameObject,0.4f);
 
-            // scorepoint()
+			
+			// scorepoint()
         } 
 		else if (!isCorrect){
 			target.GetComponent<PlayerController>().UpdateFaceTexture("sad1");
-			//badstuff
 		}
 		//Destroy(this.gameObject);
 	}
@@ -110,6 +115,7 @@ public class TargetForm : MonoBehaviour {
 		Vector3 minScaleRange = new Vector3 (baseScaleX - scalerRange, baseScaleY - scalerRange, 1);
 		Vector3 maxScaleRange = new Vector3 (baseScaleX + scalerRange, baseScaleY + scalerRange, 1);
 
+		print (minScaleRange + " maxscale" + maxScaleRange);
         GameObject _playerBody = target.GetComponent<PlayerController>().PlayerBody;
         if (_playerBody.transform.localScale.x > minScaleRange.x && _playerBody.transform.localScale.x < maxScaleRange.x &&
 			_playerBody.transform.localScale.y > minScaleRange.y && _playerBody.transform.localScale.y < maxScaleRange.y) {

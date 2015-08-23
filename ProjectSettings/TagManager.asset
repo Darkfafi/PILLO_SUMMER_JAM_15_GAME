@@ -7,6 +7,9 @@ TagManager:
   - Node
   - Confetti
   - Star
+  - FaceObject
+  - TargetShape
+  - Settings
   layers:
   - Default
   - TransparentFX

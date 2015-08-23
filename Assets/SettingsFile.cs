@@ -2,14 +2,15 @@
 using System.Collections;
 
 public class SettingsFile : MonoBehaviour {
+	public static int player;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public static void LoadTextures(int selectedPlayer)
+	{
+		if (selectedPlayer == 1) {
+
+		} else if (selectedPlayer == 2) {
+
+		}
 	}
 }
