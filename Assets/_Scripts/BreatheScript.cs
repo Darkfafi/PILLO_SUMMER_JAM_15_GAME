@@ -7,8 +7,8 @@ public class BreatheScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-	
-	}
+        timer = Random.Range(0, 360);
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -16,8 +16,8 @@ public class BreatheScript : MonoBehaviour {
 		timer += Time.deltaTime;
 		
         Vector3 newScale = transform.localScale;
-		newScale.x += Mathf.Sin(timer * 4) * 0.01f;
-        newScale.y += Mathf.Cos(timer * 4) * 0.01f;
+		newScale.x += Mathf.Sin(timer * 4.2f) * 0.01f;
+        newScale.y += Mathf.Cos(timer * 3.8f) * 0.01f;
 		transform.localScale = newScale;
 
         Vector3 newRotation = transform.eulerAngles;
