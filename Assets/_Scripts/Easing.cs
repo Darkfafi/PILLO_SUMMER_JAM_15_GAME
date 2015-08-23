@@ -2,24 +2,17 @@
 using System.Collections;
 
 public class Easing : MonoBehaviour {
-    float StartX;
-    float DestinationX;
-    float Timer = 0;
-    float EaseDuration;
 
     // Use this for initialization
     void Start () 
 	{
-        StartX = transform.position.x;
-        DestinationX = -StartX;
-        EaseDuration = 2f;
+        
     }
 	
 	// Update is called once per frame
 	void Update () 
 	{
-        Timer += Time.deltaTime;
-        transform.position = new Vector3(ElasticEaseOut(Timer, StartX, DestinationX, EaseDuration), transform.position.y, transform.position.z);
+        
     }
 	
 	/// <summary>
