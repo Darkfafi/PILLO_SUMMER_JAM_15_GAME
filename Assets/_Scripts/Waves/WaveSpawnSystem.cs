@@ -6,7 +6,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 
 	private int wavesSpawned;
 	private float timeBetweenSpawn;
-	private float minTimeBetweenSpawn;
+	public float minTimeBetweenSpawn;
 	private float timer;
 	public float waveSpeed;
 	public PlayerController player;
@@ -18,7 +18,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 	public float moveSpeedNormalShapesInLevel = 1;
 	public float moveSpeedBlackShapesInLevel = 1;
 
-
+	public float waitTime = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +27,6 @@ public class WaveSpawnSystem : MonoBehaviour {
 
 		CreateWave (WaveType.NORMAL_SHAPE, amountOfNormalShapesInLevel, moveSpeedNormalShapesInLevel);
 		CreateWave (WaveType.BLACK_SHAPE, amountOfBlackShapesInLevel, moveSpeedBlackShapesInLevel);
-
-		//Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +37,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 	void variableTime()
 	{
 		timer += 1 * Time.deltaTime;
-		timeBetweenSpawn = waveSpeed * Mathf.Pow(wavesSpawned, 2)+4.5f;
+		timeBetweenSpawn = waveSpeed * Mathf.Pow(wavesSpawned, 2)+waitTime;
 		
 		if (timeBetweenSpawn <= minTimeBetweenSpawn)
 		{
@@ -92,7 +90,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 		print (player._minSize + "max " + player._maxSize);
 
 
-		Vector3 spawnPoint = new Vector3 (0,0,0);
+		Vector3 spawnPoint = new Vector3 (0,0,10);
 
 		if (Random.Range (0, 2) > 0) {
 
@@ -103,7 +101,6 @@ public class WaveSpawnSystem : MonoBehaviour {
 			spawnPoint.x = Camera.main.pixelWidth * Random.Range(0,2);
 			spawnPoint.y = Random.Range(1,Camera.main.pixelHeight);
 		}
-
 		//targetShape.GetComponent<TargetForm> ().speed = 0.2f;
 
 		shapeObject = Instantiate ((GameObject)Resources.Load("Prefaps/TargetShape"),Camera.main.ScreenToWorldPoint(spawnPoint),Quaternion.identity) as GameObject;

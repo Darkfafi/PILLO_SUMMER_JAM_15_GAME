@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8f8491766a1b24c9d0704ad0d0523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeBetweenSpawn: 0
   waveSpeed: 0
   player: {fileID: 11423090}
   amountOfNormalShapesInLevel: 10
