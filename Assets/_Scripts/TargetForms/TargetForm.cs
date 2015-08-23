@@ -15,6 +15,8 @@ public class TargetForm : MonoBehaviour {
     private bool isInRange = false;
     private bool isCorrect = false;
 
+	public float maxCheckTime = 3f;
+
     private float baseScaleX = 0;
     private float baseScaleY = 0;
 
@@ -78,7 +80,7 @@ public class TargetForm : MonoBehaviour {
 	public void CheckShape()
 	{
 		timer += Time.deltaTime;
-		if (timer >= 3f)
+		if (timer >= maxCheckTime)
         {
 			if(InScaleRange())
 			{

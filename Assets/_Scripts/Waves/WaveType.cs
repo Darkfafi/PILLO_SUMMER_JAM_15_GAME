@@ -8,10 +8,12 @@ public class WaveType {
 
 	private string _typeWaveType;
 	private float _speedWaveType;
+	//private float _maxCheckTime;
 
 	public WaveType(string type, float speed){
 		_typeWaveType = type;
 		_speedWaveType= speed;
+		//_maxCheckTime = maxCheckTime;
 	}
 
 	public string type{
@@ -20,4 +22,8 @@ public class WaveType {
 	public float speed{
 		get{return _speedWaveType;}
 	}
+	/*
+	public float checkTime{
+		get{return _maxCheckTime;}
+	}*/
 }

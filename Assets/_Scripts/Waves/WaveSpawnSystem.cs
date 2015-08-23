@@ -17,6 +17,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 	public int amountOfBlackShapesInLevel = 1;
 	public float moveSpeedNormalShapesInLevel = 1;
 	public float moveSpeedBlackShapesInLevel = 1;
+	public float checkTimeForLevel = 3f;
 
 	public float waitTime = 5;
 
@@ -111,5 +112,6 @@ public class WaveSpawnSystem : MonoBehaviour {
 			shapeObject.AddComponent<HiddenObject>();
 		}
 		shapeObject.GetComponent<TargetForm> ().speed = shapeType.speed;
+		shapeObject.GetComponent<TargetForm> ().maxCheckTime = checkTimeForLevel;
 	}
 }
