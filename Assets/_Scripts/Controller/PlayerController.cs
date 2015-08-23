@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour {
 
 	private void UpdateCurrentSize()
 	{
-
 		//PlayerBody.transform.localScale = new Vector3(_currentSize.x * 10, _currentSize.y * 10,1f);
 		//Debug.Log (Mathf.RoundToInt((PilloController.GetSensor (PilloID.Pillo1) * 10)) * 0.1f);
 		PlayerBody.transform.localScale = new Vector3(_minSize.x + Mathf.RoundToInt ((PilloController.GetSensor (PilloID.Pillo1)) * 10) * 0.1f * (_maxSize.x - _minSize.x) ,
