@@ -1,9 +1,19 @@
 fileFormatVersion: 2
 guid: 3d1d5bad21fda5c46882b6184afd2672
-timeCreated: 1440324593
+timeCreated: 1440330961
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: levels_0
+    21300002: levels_1
+    21300004: levels_2
+    21300006: levels_3
+    21300008: levels_4
+    21300010: levels_5
+    21300012: levels_6
+    21300014: levels_7
+    21300016: levels_8
+    21300018: levels_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +40,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +58,107 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: levels_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 630
+        width: 318
+        height: 321
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_1
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 622
+        width: 300
+        height: 294
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_2
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 644
+        width: 303
+        height: 300
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_3
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 612
+        width: 320
+        height: 311
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_4
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 630
+        width: 315
+        height: 325
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_5
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 141
+        width: 322
+        height: 325
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_6
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 164
+        width: 329
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_7
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 172
+        width: 306
+        height: 302
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_8
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 156
+        width: 329
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levels_9
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 186
+        width: 324
+        height: 313
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
