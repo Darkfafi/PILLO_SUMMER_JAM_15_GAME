@@ -11,7 +11,9 @@ public class WaveSpawnSystem : MonoBehaviour {
 	public float waveSpeed;
 	public PlayerController player;
 
-	private List<WaveType> _allWavesForLevel = new List<WaveType>(){};
+    public int LevelNumber;
+
+    private List<WaveType> _allWavesForLevel = new List<WaveType>(){};
 
 	public int amountOfNormalShapesInLevel = 1;
 	public int amountOfBlackShapesInLevel = 1;
@@ -31,6 +33,10 @@ public class WaveSpawnSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (GameObject.FindGameObjectWithTag("GameOverScreen") != null)
+		{
+            return;
+        }
 		variableTime ();
 	}
 
@@ -48,9 +54,12 @@ public class WaveSpawnSystem : MonoBehaviour {
 			if(_allWavesForLevel.Count > 0){
 				CreateTargetShape(_allWavesForLevel[0]);
 				_allWavesForLevel.RemoveAt(0);
-			}else{
-				Debug.Log("NEXT LEVEL");
 			}
+			else{
+				Debug.Log("NEXT LEVEL");
+                PlayerProgressSaveAndLoad.SetLevel(Mathf.Max(PlayerProgressSaveAndLoad.GetLevel(), LevelNumber + 1));
+                Application.LoadLevel("RoadMap");
+            }
 		}
 	}
 
