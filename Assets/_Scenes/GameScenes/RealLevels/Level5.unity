@@ -224,7 +224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: LevelNumber
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: amountOfNormalShapesInLevel
@@ -236,11 +236,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: waitTime
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: moveSpeedNormalShapesInLevel
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: checkTimeForLevel

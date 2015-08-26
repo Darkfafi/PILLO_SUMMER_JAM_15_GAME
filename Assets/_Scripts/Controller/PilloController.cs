@@ -17,6 +17,7 @@ public class PilloController : MonoBehaviour
     //If not it will dispose this PilloController.
     //If this is the first one it will make this the main PilloController.
     void Awake() {
+
         if(pc != null) {
             DestroyImmediate(this.gameObject);
         } else {

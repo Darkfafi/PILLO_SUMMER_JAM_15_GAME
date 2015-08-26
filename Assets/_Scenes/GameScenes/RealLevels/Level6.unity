@@ -224,7 +224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: LevelNumber
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: amountOfNormalShapesInLevel
@@ -232,19 +232,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: amountOfBlackShapesInLevel
-      value: 4
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: waitTime
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: moveSpeedNormalShapesInLevel
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: checkTimeForLevel
       value: 3.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
+      propertyPath: moveSpeedBlackShapesInLevel
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}

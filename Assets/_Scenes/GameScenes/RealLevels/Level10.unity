@@ -224,7 +224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: LevelNumber
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11442488, guid: a46d07dd727247a43a03edf46af5ce80, type: 2}
       propertyPath: amountOfNormalShapesInLevel

@@ -97,7 +97,7 @@ public class WaveSpawnSystem : MonoBehaviour {
 		//GameObject targetShape = (GameObject)Resources.Load("Prefaps/TargetShape");
 
 		Vector3 tempScaleVec = new Vector3 (Random.Range (player._minSize.x,  player._maxSize.x), Random.Range (player._minSize.y, player._maxSize.y), 1);
-		print (player._minSize + "max " + player._maxSize);
+		//print (player._minSize + "max " + player._maxSize);
 
 
 		Vector3 spawnPoint = new Vector3 (0,0,10);
